@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIBIKI — The Prayer of Four Seasons | July 3, Asakusa Public Hall</title>
+<meta name="description" content="MOONRISE presents HIBIKI — a candlelit concert featuring Shomyo, Minyo, and a string quartet. July 3, Asakusa Public Hall, Tokyo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #b8975a;
+    --gold-light: #d4b07a;
+    --dark: #0a0a0f;
+    --dark2: #111118;
+    --white: #ffffff;
+    --gray: #aaaaaa;
+    --gray-dim: #666666;
+    --border: rgba(184,151,90,0.25);
+    --ff-display: 'Cormorant Garamond', serif;
+    --ff-body: 'Noto Serif JP', serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--white);
+    font-family: var(--ff-body);
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--dark);
+    padding: 3rem 1.5rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: 50%;
+    transform: translateX(-50%);
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(184,151,90,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    font-family: var(--ff-display);
+  }
+  .hero-kanji {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 96px;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 60px rgba(184,151,90,0.3);
+  }
+  .hero-title {
+    font-family: var(--ff-display);
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+  }
+  .hero-subtitle {
+    font-family: var(--ff-display);
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+  }
+  .candle-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 0.5px solid var(--gold);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    font-family: var(--ff-display);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+  .hero-tagline {
+    font-family: var(--ff-display);
+    font-size: 17px;
+    font-style: italic;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 2rem;
+  }
+  .info-line {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.05em;
+  }
+  .info-line span { color: var(--gold); margin-right: 6px; }
+
+  /* BUTTONS */
+  .btn-gold {
+    display: block;
+    width: 100%;
+    background: var(--gold);
+    color: var(--dark);
+    font-family: var(--ff-display);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 16px;
+    border-radius: 2px;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 10px;
+    transition: background 0.2s;
+  }
+  .btn-gold:hover { background: var(--gold-light); }
+  .btn-outline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    background: transparent;
+    color: var(--gold);
+    font-family: var(--ff-display);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 13px;
+    border-radius: 2px;
+    text-decoration: none;
+    border: 0.5px solid var(--gold);
+    transition: background 0.2s;
+  }
+  .btn-outline:hover { background: rgba(184,151,90,0.08); }
+
+  /* SECTIONS */
+  .section {
+    padding: 2rem 1.5rem;
+    border-top: 0.5px solid var(--border);
+  }
+  .sec-label {
+    font-family: var(--ff-display);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+  }
+
+  /* FLYER */
+  .flyer-img {
+    width: 100%;
+    display: block;
+    border-radius: 2px;
+  }
+  .flyer-cap {
+    font-family: var(--ff-display);
+    font-size: 11px;
+    font-style: italic;
+    color: var(--gray-dim);
+    text-align: center;
+    margin-top: 10px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ABOUT CONCERT */
+  .concert-title {
+    font-family: var(--ff-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+  .concert-body {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.9;
+  }
+
+  /* VIDEOS */
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 177.78%;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+    background: #000;
+  }
+  .video-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-cap {
+    font-family: var(--ff-display);
+    font-size: 11px;
+    font-style: italic;
+    color: var(--gray-dim);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* PROGRAM */
+  .prog-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 0.5px solid rgba(184,151,90,0.12);
+  }
+  .prog-item:last-child { border-bottom: none; }
+  .prog-dot {
+    width: 4px; height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-top: 9px;
+    flex-shrink: 0;
+  }
+  .prog-text { font-size: 14px; color: var(--white); line-height: 1.5; }
+  .prog-sub { font-size: 12px; color: var(--gray-dim); font-style: italic; }
+
+  /* ARTISTS */
+  .artist-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 0.5px solid rgba(184,151,90,0.12);
+  }
+  .artist-row:last-child { border-bottom: none; }
+  .artist-init {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(184,151,90,0.1);
+    border: 0.5px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--ff-display);
+    font-size: 13px;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .artist-name { font-size: 14px; font-weight: 400; color: var(--white); }
+  .artist-inst { font-size: 12px; color: var(--gray-dim); font-style: italic; font-family: var(--ff-display); }
+
+  /* TICKETS */
+  .ticket-block {
+    background: var(--dark2);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .ticket-title {
+    font-family: var(--ff-display);
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+  .ticket-sub {
+    font-size: 13px;
+    color: var(--gray-dim);
+    margin-bottom: 1.75rem;
+    line-height: 1.7;
+  }
+  .price-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 1.75rem;
+  }
+  .price-card {
+    border: 0.5px solid rgba(184,151,90,0.3);
+    border-radius: 2px;
+    padding: 14px 10px;
+  }
+  .price-lbl { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-dim); font-family: var(--ff-display); margin-bottom: 4px; }
+  .price-amt { font-family: var(--ff-display); font-size: 22px; font-weight: 400; color: var(--gold); }
+  .price-note { font-size: 10px; color: var(--gray-dim); margin-top: 3px; font-style: italic; font-family: var(--ff-display); }
+  .ticket-notice { font-size: 11px; color: var(--gray-dim); margin-top: 10px; font-style: italic; font-family: var(--ff-display); }
+
+  /* ABOUT MOON */
+  .about-block {
+    padding: 2rem 1.5rem;
+    border-top: 0.5px solid var(--border);
+  }
+  .moon-logo {
+    font-family: var(--ff-display);
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    color: var(--white);
+  }
+  .moon-sub {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .moon-message {
+    font-family: var(--ff-display);
+    font-size: 16px;
+    font-style: italic;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .moon-body {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+  }
+  .divider { border: none; border-top: 0.5px solid var(--border); margin: 1.5rem 0; }
+  .leader-card {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  .leader-photo {
+    width: 68px; height: 68px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0.5px solid var(--gold);
+    flex-shrink: 0;
+  }
+  .leader-role { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; font-family: var(--ff-display); }
+  .leader-name { font-family: var(--ff-display); font-size: 17px; font-weight: 400; color: var(--white); margin-bottom: 5px; }
+  .leader-desc { font-size: 12px; color: var(--gray); line-height: 1.7; }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 1.5rem;
+    border-top: 0.5px solid var(--border);
+    text-align: center;
+  }
+  .footer-text { font-size: 11px; color: var(--gray-dim); line-height: 1.9; font-family: var(--ff-display); font-style: italic; }
+  .footer-copy { font-size: 10px; color: rgba(255,255,255,0.2); margin-top: 1rem; letter-spacing: 0.1em; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">MOONRISE presents</div>
+  <div class="hero-kanji">響</div>
+  <div class="hero-title">HIBIKI</div>
+  <div class="hero-subtitle">The Prayer of Four Seasons</div>
+  <div class="candle-badge">🕯 Candlelight® Concert</div>
+  <div class="hero-tagline">"One night. Six artists.<br>A thousand years of sound."</div>
+  <div class="info-block">
+    <div class="info-line"><span>◆</span> July 3 (Fri) &nbsp;Open 18:15 / Start 19:00</div>
+    <div class="info-line"><span>◆</span> Asakusa Public Hall, Tokyo</div>
+  </div>
+  <a href="https://eplus.jp/sf/detail/4517890001?P6=001&P1=0402&P59=1" class="btn-gold">Reserve Your Tickets</a>
+  <a href="https://www.instagram.com/moon.japan_music/" class="btn-outline">Follow on Instagram</a>
+</section>
+
+<!-- FLYER -->
+<section class="section">
+  <div class="sec-label">Concert Flyer</div>
+  <img src="flyer.jpg" class="flyer-img" alt="HIBIKI concert flyer" />
+  <div class="flyer-cap">HIBIKI — The Prayer of Four Seasons · July 3, Asakusa Public Hall</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section">
+  <div class="sec-label">About This Concert</div>
+  <div class="concert-title">The four seasons of Japan<br>and Buenos Aires</div>
+  <div class="concert-body">Experience the final concert of the HIBIKI series — a candlelit journey where Japanese Buddhist chant, folk music, and a string quartet merge into one unforgettable evening.</div>
+</section>
+
+<!-- VIDEOS -->
+<section class="section">
+  <div class="sec-label">Watch Rehearsals</div>
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/b-PJxWdDcaQ" allowfullscreen loading="lazy"></iframe>
+  </div>
+  <div class="video-cap">Rehearsal — Vol. 1</div>
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/BypjpeY3R-4" allowfullscreen loading="lazy"></iframe>
+  </div>
+  <div class="video-cap">Rehearsal — Vol. 2</div>
+</section>
+
+<!-- PROGRAM -->
+<section class="section">
+  <div class="sec-label">Program</div>
+  <div class="prog-item"><div class="prog-dot"></div><div class="prog-text">The Four Seasons of Buenos Aires<br><span class="prog-sub">Piazzolla</span></div></div>
+  <div class="prog-item"><div class="prog-dot"></div><div class="prog-text">The Four Seasons of Japan, and more</div></div>
+  <div class="prog-item"><div class="prog-dot"></div><div class="prog-text">Shomyo<br><span class="prog-sub">Japanese Buddhist chant</span></div></div>
+  <div class="prog-item"><div class="prog-dot"></div><div class="prog-text">Minyo<br><span class="prog-sub">Japanese folk music</span></div></div>
+</section>
+
+<!-- ARTISTS -->
+<section class="section">
+  <div class="sec-label">Artists</div>
+  <div class="artist-row"><div class="artist-init">MS</div><div><div class="artist-name">Mao Sone</div><div class="artist-inst">Piano, Trumpet & Music Director</div></div></div>
+  <div class="artist-row"><div class="artist-init">SA</div><div><div class="artist-name">Sho Asano</div><div class="artist-inst">Shamisen & Vocals</div></div></div>
+  <div class="artist-row"><div class="artist-init">KM</div><div><div class="artist-name">Kazuma Miura</div><div class="artist-inst">Bandoneon</div></div></div>
+  <div class="artist-row"><div class="artist-init">NS</div><div><div class="artist-name">Naoto Sakiya</div><div class="artist-inst">Violin</div></div></div>
+  <div class="artist-row"><div class="artist-init">TS</div><div><div class="artist-name">Tomotaka Seki</div><div class="artist-inst">Violin</div></div></div>
+  <div class="artist-row"><div class="artist-init">KG</div><div><div class="artist-name">Kairyu Shomyo Group</div><div class="artist-inst">Buddhist Chant</div></div></div>
+</section>
+
+<!-- TICKETS -->
+<div class="ticket-block">
+  <div class="ticket-title">Reserve Your Seat</div>
+  <div class="ticket-sub">The final concert of the HIBIKI series.<br>Limited seats available.</div>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-lbl">Premium Seat</div>
+      <div class="price-amt">¥10,000</div>
+      <div class="price-note">front seat + postcard · tax in</div>
+    </div>
+    <div class="price-card">
+      <div class="price-lbl">Category A</div>
+      <div class="price-amt">¥6,000</div>
+      <div class="price-note">tax included</div>
+    </div>
+  </div>
+  <a href="https://eplus.jp/sf/detail/4517890001?P6=001&P1=0402&P59=1" class="btn-gold">Buy Tickets on eplus</a>
+  <div class="ticket-notice">No children under school age</div>
+</div>
+
+<!-- ABOUT MOON -->
+<div class="about-block">
+  <div class="moon-logo">MOON</div>
+  <div class="moon-sub">Productions</div>
+  <div class="moon-message">"Music echoes beyond the world<br>and touches the moon."</div>
+  <div class="moon-body">Moon Inc. is a Tokyo-based artist management and concert production company specializing in Japanese traditional music and classical genres. Through the MOONRISE series and international touring, Moon brings Japanese music, culture, and arts to the world.</div>
+  <hr class="divider">
+  <div class="leader-card">
+    <img src="prof-osawa.jpg" class="leader-photo" alt="Akie Osawa" />
+    <div>
+      <div class="leader-role">Representative Director</div>
+      <div class="leader-name">Akie Osawa</div>
+      <div class="leader-desc">Veteran music producer and founder of Moon Inc., dedicated to bringing Japanese artists to global stages.</div>
+    </div>
+  </div>
+  <a href="https://www.instagram.com/moon.japan_music/" class="btn-outline">@moon.japan_music</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-text">
+    Organized by Moon Inc. / nakamichi Co., Ltd.<br>
+    Candlelight® produced by Fever<br>
+    Supported by Tokyo Metropolitan Government<br>
+    & Tokyo Convention & Visitors Bureau
+  </div>
+  <div class="footer-copy">© 2025 Moon Inc. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
