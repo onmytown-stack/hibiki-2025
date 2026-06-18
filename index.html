@@ -39,22 +39,37 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* HERO */
+  /* HERO WITH VIDEO BG */
   .hero {
-    background: var(--dark);
-    padding: 3rem 1.5rem 2.5rem;
-    text-align: center;
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 1.5rem 2.5rem;
     overflow: hidden;
   }
-  .hero::before {
-    content: '';
+  .hero-video {
     position: absolute;
-    top: -60px; left: 50%;
-    transform: translateX(-50%);
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(184,151,90,0.08) 0%, transparent 70%);
-    pointer-events: none;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.35;
+    z-index: 0;
+  }
+  .hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(10,10,15,0.5) 0%, rgba(10,10,15,0.3) 50%, rgba(10,10,15,0.85) 100%);
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
   }
   .hero-label {
     font-size: 10px;
@@ -71,7 +86,7 @@
     color: var(--white);
     line-height: 1;
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 60px rgba(184,151,90,0.3);
+    text-shadow: 0 0 60px rgba(184,151,90,0.4);
   }
   .hero-title {
     font-family: var(--ff-display);
@@ -107,7 +122,7 @@
     font-family: var(--ff-display);
     font-size: 17px;
     font-style: italic;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.85);
     line-height: 1.6;
     margin-bottom: 2rem;
   }
@@ -119,7 +134,7 @@
   }
   .info-line {
     font-size: 13px;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.85);
     letter-spacing: 0.05em;
   }
   .info-line span { color: var(--gold); margin-right: 6px; }
@@ -207,6 +222,62 @@
     color: var(--gray);
     line-height: 1.9;
   }
+
+  /* CAROUSEL */
+  .carousel-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .carousel-track {
+    display: flex;
+    transition: transform 0.4s ease;
+  }
+  .carousel-slide {
+    min-width: 100%;
+    aspect-ratio: 3/2;
+    overflow: hidden;
+  }
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(10,10,15,0.6);
+    border: 0.5px solid var(--gold);
+    color: var(--gold);
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 2;
+    transition: background 0.2s;
+  }
+  .carousel-btn:hover { background: rgba(184,151,90,0.2); }
+  .carousel-btn.prev { left: 10px; }
+  .carousel-btn.next { right: 10px; }
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .carousel-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--gray-dim);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .carousel-dot.active { background: var(--gold); }
 
   /* VIDEOS */
   .video-wrap {
@@ -380,20 +451,26 @@
 </head>
 <body>
 
-<!-- HERO -->
+<!-- HERO WITH VIDEO BG -->
 <section class="hero">
-  <div class="hero-label">MOONRISE presents</div>
-  <div class="hero-kanji">響</div>
-  <div class="hero-title">HIBIKI</div>
-  <div class="hero-subtitle">The Prayer of Four Seasons</div>
-  <div class="candle-badge">🕯 Candlelight® Concert</div>
-  <div class="hero-tagline">"One night. Six artists.<br>A thousand years of sound."</div>
-  <div class="info-block">
-    <div class="info-line"><span>◆</span> July 3 (Fri) &nbsp;Open 18:15 / Start 19:00</div>
-    <div class="info-line"><span>◆</span> Asakusa Public Hall, Tokyo</div>
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="英語広告LP用.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">MOONRISE presents</div>
+    <div class="hero-kanji">響</div>
+    <div class="hero-title">HIBIKI</div>
+    <div class="hero-subtitle">The Prayer of Four Seasons</div>
+    <div class="candle-badge">🕯 Candlelight® Concert</div>
+    <div class="hero-tagline">"One night. Six artists.<br>A thousand years of sound."</div>
+    <div class="info-block">
+      <div class="info-line"><span>◆</span> July 3 (Fri) &nbsp;Open 18:15 / Start 19:00</div>
+      <div class="info-line"><span>◆</span> Asakusa Public Hall, Tokyo</div>
+    </div>
+    <a href="https://shop.moonjapan.net/items/139394954" class="btn-gold">Reserve Your Tickets</a>
+    <a href="https://www.instagram.com/moon.japan_music/" class="btn-outline">Follow on Instagram</a>
   </div>
-  <a href="https://shop.moonjapan.net/items/139394954" class="btn-gold">Reserve Your Tickets</a>
-  <a href="https://www.instagram.com/moon.japan_music/" class="btn-outline">Follow on Instagram</a>
 </section>
 
 <!-- FLYER -->
@@ -407,7 +484,24 @@
 <section class="section">
   <div class="sec-label">About This Concert</div>
   <div class="concert-title">The four seasons of Japan<br>and Buenos Aires</div>
-  <div class="concert-body">Experience the final concert of the HIBIKI series — a candlelit journey where Japanese Buddhist chant, folk music, and a string quartet merge into one unforgettable evening.</div>
+  <div class="concert-body">Experience the final concert of the HIBIKI series — a candlelit journey where Japanese Buddhist chant, folk music, and a string quartet come together for one unforgettable evening.</div>
+</section>
+
+<!-- PHOTO CAROUSEL -->
+<section class="section">
+  <div class="sec-label">Concert Photos</div>
+  <div class="carousel-wrap">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide"><img src="DSC01530.jpg" alt="Concert photo 1" /></div>
+      <div class="carousel-slide"><img src="DSC01532.jpg" alt="Concert photo 2" /></div>
+      <div class="carousel-slide"><img src="DSC01544.jpg" alt="Concert photo 3" /></div>
+      <div class="carousel-slide"><img src="DSC01568.jpg" alt="Concert photo 4" /></div>
+      <div class="carousel-slide"><img src="DSC01668.jpg" alt="Concert photo 5" /></div>
+    </div>
+    <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#8249;</button>
+    <button class="carousel-btn next" onclick="moveCarousel(1)">&#8250;</button>
+  </div>
+  <div class="carousel-dots" id="carouselDots"></div>
 </section>
 
 <!-- VIDEOS -->
@@ -451,7 +545,7 @@
     <div class="price-card">
       <div class="price-lbl">Premium Seat</div>
       <div class="price-amt">¥10,000</div>
-      <div class="price-note">front seat + postcard · tax in</div>
+      <div class="price-note">front seat + postcard · tax included</div>
     </div>
     <div class="price-card">
       <div class="price-lbl">Category A</div>
@@ -459,7 +553,7 @@
       <div class="price-note">tax included</div>
     </div>
   </div>
-  <a href="https://shop.moonjapan.net/items/139394954" class="btn-gold">Buy Tickets on eplus</a>
+  <a href="https://shop.moonjapan.net/items/139394954" class="btn-gold">Buy Tickets</a>
   <div class="ticket-notice">No children under school age</div>
 </div>
 
@@ -475,7 +569,7 @@
     <div>
       <div class="leader-role">Representative Director</div>
       <div class="leader-name">Akie Osawa</div>
-      <div class="leader-desc">Veteran music producer and founder of Moon Inc., dedicated to bringing Japanese artists to global stages.</div>
+      <div class="leader-desc">Founder and producer of Moon Inc., dedicated to bringing Japanese artists to global stages.</div>
     </div>
   </div>
   <a href="https://www.instagram.com/moon.japan_music/" class="btn-outline">@moon.japan_music</a>
@@ -489,8 +583,38 @@
     Supported by Tokyo Metropolitan Government<br>
     & Tokyo Convention & Visitors Bureau
   </div>
-  <div class="footer-copy">© 2025 Moon Inc. All rights reserved.</div>
+  <div class="footer-copy">© 2026 Moon Inc. All rights reserved.</div>
 </footer>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const track = document.getElementById('carouselTrack');
+  const dotsContainer = document.getElementById('carouselDots');
+
+  // Create dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goTo(i);
+    dotsContainer.appendChild(dot);
+  });
+
+  function goTo(index) {
+    current = (index + slides.length) % slides.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function moveCarousel(dir) {
+    goTo(current + dir);
+  }
+
+  // Auto advance
+  setInterval(() => moveCarousel(1), 4000);
+</script>
 
 </body>
 </html>
